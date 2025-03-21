@@ -10,6 +10,7 @@
 #ifndef __D_T_BOW_VECTOR__
 #define __D_T_BOW_VECTOR__
 
+#include <cstdint>
 #include <iostream>
 #include <map>
 #include <vector>
@@ -84,20 +85,20 @@ class DBOW_API BowVector : public std::map<WordId, WordValue> {
    * @param out stream
    * @param v
    */
-  friend std::ostream &operator<<(std::ostream &out, const BowVector &v);
+  friend std::ostream& operator<<(std::ostream& out, const BowVector& v);
 
   /**
    * Saves the bow vector as a vector in a matlab file
    * @param filename
    * @param W number of words in the vocabulary
    */
-  void saveM(const std::string &filename, size_t W) const;
+  void saveM(const std::string& filename, size_t W) const;
 
   // returns a unique number from the configuration
   uint64_t getSignature() const;
   // serialization
-  void toStream(std::ostream &str) const;
-  void fromStream(std::istream &str);
+  void toStream(std::ostream& str) const;
+  void fromStream(std::istream& str);
 };
 
 }  // namespace DBoW3
